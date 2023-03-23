@@ -1,0 +1,38 @@
+.date {
+    gap: 4rem;
+    text-align: center;
+}
+
+.date__sub-title {
+    margin: 0 6rem;
+}
+
+.date-button__ticket::after {
+    content: "";
+    display: inline-block;
+    background-image: url("../img/date-section/local_activity@2x.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 1.7rem;
+    height: 1.4rem;
+    vertical-align: sub; /* definir a verticalidade do conteúdo dentro de um elemento em relação a outros elementos em sua linha */
+    margin-left: 16px;
+}
+
+/* 768 resolution */
+@media screen and (max-width: 770px) {
+    .date {
+        flex-direction: column;
+    }
+    
+    .date__sub-title {
+        margin: 0 4rem;
+    }
+}
+
+/* 360 */
+@media screen and (max-width: 460px) {
+    .date__sub-title {
+        margin: 0;
+    }
+}

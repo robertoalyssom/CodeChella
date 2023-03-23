@@ -1,0 +1,211 @@
+.lineup {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.lineup-tittle {
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 5rem;
+    margin-top: 3.5rem;
+}
+
+.container-sunday {
+    margin-bottom: 3rem;
+}
+
+.lineup-date__sabado,
+.lineup-date__domingo {
+    background-color: var(--dark-green);
+    padding: .8rem;
+    margin: 3rem 0 2.3rem 0;
+    display: inline-block;
+    position: relative; /* relative para que os pseudo-elementos possam ser posicionado em relação a esse elem. */
+    font-size: 3rem;
+    font-family: var(--fonte-secundaria);
+    line-height: 62px;
+}
+
+/* IT'S NECESSARY TO FIX THE BEFORE AND AFTER ON dOMINGO DIV*/
+.lineup-date__sabado::before,
+.lineup-date__domingo::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    border: 1px solid var(--verde-escuro);
+    top: 2.5rem;
+    right: 28rem;
+    width: 359.5px;
+}
+
+.lineup-date__sabado::after,
+.lineup-date__domingo::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    border: 1px solid var(--verde-escuro);
+    top: 2.5rem;
+    left: 28rem;
+    width: 359.5px;
+}
+
+/* Customizing lists */
+.container-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.lineup-list__1st,
+.lineup-list__2nd,
+.lineup-list__3rd,
+.lineup-list__4th {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.lineup-list__1st li {
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 56px;
+}
+
+.lineup-list__2nd li {
+    display: flex;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 47px;
+    margin: 0 .3em;
+}
+
+.lineup-list__3rd li {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 38px;
+    margin: 0 .3em;
+}
+
+
+.lineup-list__4th li {
+    font-size: 1.6rem;
+    line-height: 38px;
+    margin: 0 .3em;
+}
+
+/* Image */
+.image {
+    position: relative;
+    height: 24vw;
+}
+
+.image-img {
+    width: 100%;
+    position: relative;
+}
+
+.image-img__mobile {
+    display: none;
+}
+
+.image::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 96.2%;
+    background-color: rgb(2, 71, 82);
+    opacity: .3;
+    z-index: 1;
+}
+
+/* 768 resolution */
+@media screen and (max-width: 770px) {
+    .lineup {
+        width: 93%;
+    }
+
+    .container-saturday {
+        margin: 0 .9rem;
+    }
+
+    .container-sunday {
+        margin-bottom: 1.5rem;
+    }
+
+    .container-list {
+        gap: 0;
+    }
+
+    .container-list ul li {
+        margin: 1rem .5rem;
+    }
+
+    .container-saturday
+        .container-list
+            .lineup-list__4th  {
+                margin: 0 1rem;
+    }
+
+    /* .image {
+        background-image: url('../img/lineup/Homepage2.png');
+        background-size: cover;
+        height: 45.6vw;
+        position: relative;
+    }
+
+    .image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--dark-blue);
+        opacity: 1;
+    } */
+}
+
+/* 360 resolution */
+@media screen and (max-width: 460px) {
+    .lineup-tittle {
+        font-size: 2.4rem;
+        line-height: 62px;
+        margin-top: 2.5rem;
+    }
+
+    .lineup-date__sabado,
+    .lineup-date__domingo {
+        font-size: 1.6rem;
+        line-height: 2.1rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .container-list ul li{
+        margin: 1rem .5rem;
+    }
+
+    .container-saturday
+        .container-list
+            .lineup-list__4th  {
+                margin: 0;
+    }
+
+    .image {
+        width: 100%;
+        height: 97.6vw;
+    }
+
+    .image-img {
+        display: none;
+    }
+
+    .image-img__mobile { /* image don't appear!!! */
+        display: block;
+        width: 100%;
+        
+    }
+}

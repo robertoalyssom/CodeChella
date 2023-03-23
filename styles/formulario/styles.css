@@ -1,0 +1,115 @@
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.formulario-title {
+    font-family: var(--fonte-secundaria);
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 62px;
+    margin: 2rem auto;
+}
+
+.form-main { /* to align the submit button on center */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+fieldset {
+    width: 100%;
+}
+
+.form-label {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 38px;
+}
+
+.form-field {
+    display: inline-block;
+    font-size: 1rem;
+    padding: .6rem;
+    border: none;
+    
+    box-sizing: border-box; /* to set the width of the field the same to the fiedseet elem./ border-box includes content-box, padding, and borders(border-box). margin is ignored   */
+    width: 100%;
+}
+
+.form-error {
+    display: block;
+    color: var(--dark-red);
+    font-weight: 700;
+    line-height: 1.5rem;
+    margin-top: .3rem;
+    margin-left: .2rem;
+}
+
+.container-form {
+    display: flex;
+    gap: 1.3rem;
+}
+
+.container-submit {
+    position: relative;
+}
+
+.submit-button {
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.icon {
+    position: relative;
+    margin-left: .6rem;
+    top: .1rem;
+}
+
+/* 698 resolution */
+@media screen and (max-width: 770px) {
+    .formulario {
+        width: 85%;
+    }
+
+    .formulario-title {
+        text-align: center;
+    }
+
+    .container-form {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: .4rem;
+    }
+
+    #date {
+        width: 70%;
+    }
+}
+
+/* 360 resolution */
+@media screen and (max-width: 460px) {
+    .formulario-title {
+        font-size: 1.6rem;
+        line-height: 2.1rem;
+    }
+
+    fieldset:last-child .form-label {
+        width: 60%;
+    }
+    
+    #date {
+        width: 100%;
+    }
+}

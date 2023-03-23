@@ -1,0 +1,17 @@
+.experiencias-inverted {
+    text-align: right;
+}
+
+/* 768 resolution */
+@media screen and (max-width: 770px) {
+    .experiencias {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+        /* width: 90%; */
+    }
+    
+    .experiencias-inverted {
+        flex-direction: column-reverse;
+    }
+}

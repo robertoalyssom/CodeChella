@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/letra-c.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <!-- <link rel="stylesheet" href="./reset.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Raleway:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <title>CodeChella | Comprar ingresso</title>
+</head>
+<body>
+    <header class="header">
+        <div>
+            <a href="../index.html"><img src="../img/logo/Logo1 1@2x.png" alt="logotipo da CodeChella" class="logo"></a>
+        </div>
+
+        <!-- Mobile -->
+        <div class="sidebar">
+            <input type="checkbox" id="menu" class="sidebar-checkbox">
+            <label for="menu">
+                <i class="fa-sharp fa-solid fa-bars sidebar-icon"></i>
+            </label>
+            <ul class="sidebar-list">
+                <li><a href="../pages/experiencia-page.html" class="header-link">A experiência</a></li>
+                <li><a href="../pages/setores-page.html" class="header-link">Mapa de Setores</a></li>
+                <li><a href="../pages/informacoes-page.html" class="header-link">Informações</a></li>
+                <li><a href="../pages/comprar-ingresso-page.html" class="header-link">Ingresso</a></li>
+            </ul>
+        </div>
+
+        <ul class="header-lista">
+            <li><a href="../pages/experiencia-page.html" class="header-link">A experiência</a></li>
+            <li><a href="../pages/setores-page.html" class="header-link">Mapa de Setores</a></li>
+            <li><a href="../pages/informacoes-page.html" class="header-link">Informações</a></li>
+            <li><a href="#" class="header-link">Ingresso</a></li>
+        </ul>
+    </header>
+    <section class="banner">
+        <img src="../img/banner/Banner-comprar-ingresso@2x.png" alt="imagem do céu com varios objetos arremessados para o alto" class="banner-image">
+        <img src="../img/banner/Banner-comprar-ingresso-tablet.png" alt="imagem do céu com varios objetos arremessados para o alto" class="banner-image__tablet">
+        <img src="../img/banner/Banner-comprar-ingresso-mobile.png" alt="imagem do céu com varios objetos arremessados para o alto" class="banner-image__mobile">
+    </section>
+    <main class="container-main">
+        <section class="formulario">
+            <div>
+                <h2 class="formulario-title">Preencha o formulário a seguir:</h2>
+            </div>
+            <form action="#" class="form-main">
+                <fieldset>
+                    <label for="name" class="form-label">Nome Completo:</label>
+                    <input name="name" type="text" class="form-field" id="name" placeholder="Seu nome completo aqui" minlength="4" required  data-field/>
+                </fieldset>
+
+                <fieldset>
+                    <label for="email" class="form-label">Email:</label>
+                    <input name="email" type="email" class="form-field" id="email"  placeholder="exemplo@email.com" required pattern=""  data-field/>
+                </fieldset>
+                
+                <div class="container-form">
+                    <fieldset>
+                        <label for="type" class="form-label">Tipo de ingresso:</label>
+                        <select name="select" id="type" class="form-field" placeholder="Tipo de ingresso" required data-field>
+                            <option value="Inteira">Inteira</option>
+                            <option value="Meia entrada">Meia entrada</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="date" class="form-label">Data de nascimento:</label>
+                        <input name="date" type="date" class="form-field" id="date" required data-field/>
+                    </fieldset>
+                </div>
+
+                <div class="container-submit">
+                    <button type="submit" class="button submit-button">Avançar! <i class="fa-solid fa-arrow-right icon"></i></button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <a href="#"><img src="../img/logo/Logo1 1@2x.png" alt="logotipo da CodeChella" class="logo"></a>
+            <div class="container-footer">
+            <p>Acesse nossas redes:</p>
+                <a href="#"><img src="../img/icons/whatsapp.png" alt="ícone do whatsapp"></a>
+                <a href="#"><img src="../img/icons/twitch.png" alt="ícone da twitch"></a>
+                <a href="#"><img src="../img/icons/insta.png" alt="ícone do instagram"></a>
+                <a href="#"><img src="../img/icons/twitter.png" alt="ícone do twitter"></a>
+            </div>
+        </div>
+        <div>
+            <p>Desenvolvido por Alura.</p>
+            <p>Projeto fictício sem fins comerciais.</p>
+        </div>
+    </footer>
+    <script src="../js/script.js" type="module"></script>
+</body>
+</html>

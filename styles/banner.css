@@ -1,0 +1,34 @@
+.banner-image {
+    width: 100%;
+}
+
+.banner-image__tablet,
+.banner-image__mobile {
+    display: none;
+}
+
+/* 768 resolution */
+@media screen and (max-width: 770px) {
+    .banner-image,
+    .banner-image__mobile {
+        display: none;
+    }
+
+    .banner-image__tablet {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* 360 resolution */
+@media screen and (max-width: 460px) {
+    .banner-image,
+    .banner-image__tablet {
+        display: none;
+    }
+
+    .banner-image__mobile {
+        display: block;
+        width: 100%;
+    }
+}
