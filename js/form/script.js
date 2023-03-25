@@ -1,4 +1,4 @@
-import validateName from "./validate-name.js";
+ import validateName from "./validate-name.js";
 import validateEmail from "./validate-email.js";
 import notOfLegalAge from "./validate-date.js";
 
@@ -55,7 +55,6 @@ const $submitButton = document.querySelector('[data-button]');
 
 $form.addEventListener("submit", event => {
     event.preventDefault();
-    console.log(event.target.select);
     storeData(event);
 });
 
@@ -70,5 +69,9 @@ function storeData(event) {
 
     localStorage.setItem("ticket", JSON.stringify(formDatas));
 };
+
+// function {
+
+// }
 
 // console.dir(field.validity);
