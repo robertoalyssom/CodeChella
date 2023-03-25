@@ -23,7 +23,7 @@ function validateField(field) {
     else if (field.name == "date" && notOfLegalAge(fieldData)) {
         writeErrorMessage(fieldsetElement, notOfLegalAge(fieldData));
     }
-    else if (fieldsetElement.childElementCount == "3") { // how many children in the fieldset elem.?
+    else if (fieldsetElement.childElementCount == "3") { // third filedset element's child
         deleteErrorMessage(fieldsetElement);
     };
 };
@@ -49,6 +49,26 @@ function deleteErrorMessage(fieldsetElement) {
     fieldsetElement.removeChild(paragraph);
 };
 
+// Store datas in the localStorage and submit it
+const $form = document.querySelector('[data-form]');
+const $submitButton = document.querySelector('[data-button]');
 
+$form.addEventListener("submit", event => {
+    event.preventDefault();
+    console.log(event.target.select);
+    storeData(event);
+});
+
+
+function storeData(event) {
+    let formDatas = {
+        "name": event.target.name.value,
+        "email": event.target.email.value,
+        "ticketType": event.target.select.value,
+        "dateOfBirth": event.target.date.value
+    }
+
+    localStorage.setItem("ticket", JSON.stringify(formDatas));
+};
 
 // console.dir(field.validity);
