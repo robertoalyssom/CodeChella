@@ -69,6 +69,11 @@ a {
 .content-image {
     width: 50%;
     height: 30%;
+    transition: .8s;
+}
+
+.content-image:hover {
+    transform: scale(1.04);
 }
 
 .content-image__mobile {
@@ -99,6 +104,18 @@ a {
     box-shadow: 4px 4px 0px var(--brown);
     border: none;
     position: relative;
+    transition: .2s;
+}
+
+.button:hover {
+    background-color: var(--blue);
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: .5s;
+}
+
+.button:active {
+    background-color: var(--red);
 }
 
 /* 768 resolution */

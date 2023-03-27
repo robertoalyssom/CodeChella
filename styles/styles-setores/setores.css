@@ -67,8 +67,13 @@
     margin: 1rem 0;
 }
 
-.detalhes-imagem {
+.detalhes-image {
     width: 100%;
+    transition: .5s;
+}
+
+.detalhes-image:hover {
+    transform: scale(1.05);
 }
 
 .container-detalhes div:nth-child(2) {
