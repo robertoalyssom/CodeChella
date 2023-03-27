@@ -64,11 +64,9 @@ function storeData(event) {
     let formDatas = {
         "name": event.target.name.value,
         "email": event.target.email.value,
-        "ticketType": event.target.select.value,
+        "type": event.target.select.value,
         "dateOfBirth": event.target.date.value
     }
 
     localStorage.setItem("ticket", JSON.stringify(formDatas));
 };
-
-console.log(window.location.href);
