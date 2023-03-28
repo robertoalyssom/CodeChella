@@ -5,5 +5,4 @@ export default function validateEmail(email) {
         let errorMessage = "email invalido! Por favor, digite o email corretamente!";
         return errorMessage;
     };
-
 };

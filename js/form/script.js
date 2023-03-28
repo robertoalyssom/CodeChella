@@ -6,11 +6,11 @@ import notOfLegalAge from "./validate-date.js";
 const $fields = document.querySelectorAll('[data-field]');
 
 $fields.forEach(field => {
-    field.addEventListener("blur", event => validateField(event.target));
+    field.addEventListener("blur", event => verifyField(event.target));
 });
 
-// Validate fields
-function validateField(field) {
+// validate fields
+function verifyField(field) {
     let fieldsetElement = field.parentNode; // DOM node fieldset
     let fieldData = field.value; // user data
 
@@ -28,7 +28,7 @@ function validateField(field) {
     };
 };
 
-// Write error message
+// write error message
 function writeErrorMessage(fieldsetElement, errorMessage) {
     let numberOfChildrenInFieldset = fieldsetElement.childElementCount;
     
@@ -42,23 +42,23 @@ function writeErrorMessage(fieldsetElement, errorMessage) {
     };
 };
 
-// Delete error message
+// delete error message
 function deleteErrorMessage(fieldsetElement) {
     let paragraph = fieldsetElement.children[2]; // span
     
     fieldsetElement.removeChild(paragraph);
 };
 
-// Store datas in the localStorage and submit it
+// Submit event add datas in localStorage
 const $form = document.querySelector('[data-form]');
 const $submitButton = document.querySelector('[data-button]');
 
 $form.addEventListener("submit", event => {
     event.preventDefault();
     storeData(event);
+
     window.location.href = "./ingresso-comprado-page.html";
 });
-
 
 function storeData(event) {
     let formDatas = {
@@ -66,7 +66,7 @@ function storeData(event) {
         "email": event.target.email.value,
         "type": event.target.select.value,
         "dateOfBirth": event.target.date.value
-    }
+    };
 
     localStorage.setItem("ticket", JSON.stringify(formDatas));
 };
