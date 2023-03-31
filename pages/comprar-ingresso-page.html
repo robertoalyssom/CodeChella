@@ -54,12 +54,14 @@
             <form action="#" class="form-main" data-form>
                 <fieldset>
                     <label for="name" class="form-label">Nome Completo:</label>
-                    <input name="name" type="text" class="form-field" id="name" placeholder="Seu nome completo aqui" minlength="4" required  data-field/>
+                    <input name="name" type="text" class="form-field" id="name" placeholder="Seu nome completo aqui" required  data-field minlength="4"/> 
+                     <span class="form-error" id="span"></span>
                 </fieldset>
 
                 <fieldset>
                     <label for="email" class="form-label">Email:</label>
-                    <input name="email" type="email" class="form-field" id="email"  placeholder="exemplo@email.com" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$" required data-field/>
+                    <input name="email" type="email" class="form-field" id="email"  placeholder="exemplo@email.com" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3}$" required data-field/>
+                    <span class="form-error" id="span"></span>
                 </fieldset>
                 
                 <div class="container-form">
@@ -74,6 +76,7 @@
                     <fieldset>
                         <label for="date" class="form-label">Data de nascimento:</label>
                         <input name="date" type="date" class="form-field" id="date" required data-field/>
+                        <span class="form-error" id="span"></span>
                     </fieldset>
                 </div>
 

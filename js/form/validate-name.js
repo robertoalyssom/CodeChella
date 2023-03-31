@@ -1,10 +1,9 @@
-export default function validateName(name) {
-    let brokenName = name.split("");
+export default function validateName(field) {
+    let brokenName = field.value.split("");
     
     let spaceString = brokenName.find(string => string === " "); // find space string
     
-    if(!spaceString) {
-        const errorMessage = "Por favor! Preencha com o nome completo, ok?";
-        return errorMessage;
-    };
+    if(!spaceString && field.value.length >= 4) {
+        field.setCustomValidity("error Message");
+    }
 };

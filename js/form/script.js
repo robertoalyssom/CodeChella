@@ -7,51 +7,83 @@ const $fields = document.querySelectorAll('[data-field]');
 
 $fields.forEach(field => {
     field.addEventListener("blur", event => verifyField(event.target));
+    field.addEventListener("invalid", event => event.preventDefault()); // it blocks the standart pop-ups 
 });
 
-// validate fields
-function verifyField(field) {
-    let fieldsetElement = field.parentNode; // DOM node fieldset
-    let fieldData = field.value; // user data
+// Error messages
+const errorTypes = [
+    "patternMismatch",
+    "tooShort",
+    "typeMismatch",
+    "valueMissing",
+    "customError"
+];
 
-    if (field.name == "name" && validateName(fieldData)) {
-        writeErrorMessage(fieldsetElement, validateName(fieldData));
+const messages = {
+    name: {
+        valueMissing: "Por favor, preencha o campo.",
+        patternMismatch: "Por favor, preencha um nome válido.",
+        tooShort: "Por favor, preencha um nome válido.",
+        customError: "Por favor, preencha o campo com o nome completo, ok?"
+    },
+    email: {
+        patternMismatch: "Por favor, preencha um email válido.",
+        valueMissing: "O campo de e-mail não pode estar vazio.",
+        typeMismatch: "Por favor, preencha um email válido.",
+        tooShort: "Por favor, preencha um e-mail válido."
+    },
+    date: {
+        valueMissing: 'O campo de data de nascimento não pode estar vazio.',
+        customError: 'Atenção: a compra de ingressos é restrita a maiores de 18 anos.'
     }
-    else if (field.name == "email" && validateEmail(fieldData)) {
-        writeErrorMessage(fieldsetElement, validateEmail(fieldData));
-    }
-    else if (field.name == "date" && notOfLegalAge(fieldData)) {
-        writeErrorMessage(fieldsetElement, notOfLegalAge(fieldData));
-    }
-    else if (fieldsetElement.childElementCount == "3") { // third filedset element's child
-        deleteErrorMessage(fieldsetElement);
-    };
 };
 
-// write error message
-function writeErrorMessage(fieldsetElement, errorMessage) {
-    let numberOfChildrenInFieldset = fieldsetElement.childElementCount;
+// check fields
+function verifyField(field) {
+    let errorMessage = "";
     
-    if (numberOfChildrenInFieldset == "2") {
-        let newParagraph = document.createElement("span"); // create span
-        
-        newParagraph.classList.add("form-error");
-        
-        newParagraph.textContent = errorMessage;
-        fieldsetElement.appendChild(newParagraph);
+    field.setCustomValidity("");
+
+    // set Custom Validities
+    if (field.name == "name" && field.value >= "4") {
+        validateName(field);
+    };
+    if (field.name == "date") {
+        notOfLegalAge(field);
+    };
+    
+    // check validityState
+    errorTypes.forEach( error => {
+        if (field.validity[error]) { // when field.validity get some error like cosnt errorTypes (true)
+            errorMessage = messages[field.name][error]; // accessing error messages in cosnt messages
+            writeErrorMessage(field, errorMessage);
+        }
+        else if (field.validity.valid) {
+            deleteErrorMessage(field.parentNode);
+        };
+    });
+    console.log(field.validity);
+};
+
+// validate and write error message
+function writeErrorMessage(field, errorMessage) {
+    let imputValidator = field.checkValidity();
+    let $span = field.parentNode.querySelector('#span');
+    
+    if (!imputValidator) {
+        $span.textContent = errorMessage;
     };
 };
 
 // delete error message
 function deleteErrorMessage(fieldsetElement) {
-    let paragraph = fieldsetElement.children[2]; // span
-    
-    fieldsetElement.removeChild(paragraph);
+    let $span = fieldsetElement.children[2]; // span
+
+    $span.innerText = "";
 };
 
 // Submit event add datas in localStorage
 const $form = document.querySelector('[data-form]');
-const $submitButton = document.querySelector('[data-button]');
 
 $form.addEventListener("submit", event => {
     event.preventDefault();
