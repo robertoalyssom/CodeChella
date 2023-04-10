@@ -67,9 +67,9 @@
                 <div class="container-form">
                     <fieldset>
                         <label for="type" class="form-label">Tipo de ingresso:</label>
-                        <select name="select" id="type" class="form-field" placeholder="Tipo de ingresso" required data-field>
-                            <option value="Inteira">Inteira</option>
-                            <option value="Meia entrada">Meia entrada</option>
+                        <select name="type" id="type" class="form-field" placeholder="Tipo de ingresso" required data-field>
+                            <option>Inteira</option>
+                            <option>Meia entrada</option>
                         </select>
                     </fieldset>
 
@@ -77,6 +77,27 @@
                         <label for="date" class="form-label">Data de nascimento:</label>
                         <input name="date" type="date" class="form-field" id="date" required data-field/>
                         <span class="form-error" id="span"></span>
+                    </fieldset>
+                </div>
+
+                <div class="container-form">
+                    <fieldset>
+                        <label for="type" class="form-label">Setor:</label>
+                        <select name="sector" id="sector" class="form-field" placeholder="Tipo de ingresso" required data-field>
+                            <option>Pista Premium</option>
+                            <option>Pista Comum</option>
+                            <option>Cadeiras térreo</option>
+                            <option>Cadeiras superiores</option>
+                            <option>Rampas</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="type" class="form-label">Data do show:</label>
+                        <select name="showDate" id="showDate" class="form-field" placeholder="Tipo de ingresso" required data-field>
+                            <option>11/03</option>
+                            <option>12/03</option>
+                        </select>
                     </fieldset>
                 </div>
 

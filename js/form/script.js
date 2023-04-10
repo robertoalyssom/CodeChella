@@ -1,5 +1,4 @@
 import validateName from "./validate-name.js";
-import validateEmail from "./validate-email.js";
 import notOfLegalAge from "./validate-date.js";
 
 // Blur event
@@ -10,7 +9,7 @@ $fields.forEach(field => {
     field.addEventListener("invalid", event => event.preventDefault()); // it blocks the standart pop-ups 
 });
 
-// Error messages
+// Error types
 const errorTypes = [
     "patternMismatch",
     "tooShort",
@@ -19,6 +18,7 @@ const errorTypes = [
     "customError"
 ];
 
+// Error messages
 const messages = {
     name: {
         valueMissing: "Por favor, preencha o campo.",
@@ -62,7 +62,7 @@ function verifyField(field) {
             deleteErrorMessage(field.parentNode);
         };
     });
-    console.log(field.validity);
+    // console.log(field.validity);
 };
 
 // validate and write error message
@@ -79,7 +79,9 @@ function writeErrorMessage(field, errorMessage) {
 function deleteErrorMessage(fieldsetElement) {
     let $span = fieldsetElement.children[2]; // span
 
-    $span.innerText = "";
+    if (fieldsetElement.children[2]) {
+        $span.innerText = "";
+    };
 };
 
 // Submit event add datas in localStorage
@@ -96,8 +98,10 @@ function storeData(event) {
     let formDatas = {
         "name": event.target.name.value,
         "email": event.target.email.value,
-        "type": event.target.select.value,
-        "dateOfBirth": event.target.date.value
+        "type": event.target.type.value,
+        "dateOfBirth": event.target.date.value,
+        "section": event.target.sector.value,
+        "showDate": event.target.showDate.value
     };
 
     localStorage.setItem("ticket", JSON.stringify(formDatas));
